@@ -14,26 +14,31 @@ index = df_100["\'sample #\'"].to_numpy()
 
 
 # Create wavelet object and define parameters
-w = pywt.Wavelet('sym4')
+motherwave = "coif5"
+w = pywt.Wavelet(motherwave)
 maxlev = pywt.dwt_max_level(len(data), w.dec_len)
+
 # maxlev = 2 # Override if desired
-print("maximum level is " + str(maxlev))
-threshold = 0.04 # Threshold for filtering
+#print("maximum level is " + str(maxlev))
+print(w)
+
+threshold=0.01 #use Rigorous SURE, not single value
 
 # Decompose into wavelet components, to the level selected:
-coeffs = pywt.wavedec(data, 'sym4', level=maxlev)
+coeffs = pywt.wavedec(data, motherwave, level=maxlev)
+
 
 #cA = pywt.threshold(cA, threshold*max(cA))
 
-plt.figure()
+#plt.figure()
 for i in range(1, len(coeffs)):
-    plt.subplot(maxlev, 1, i)
-    plt.plot(coeffs[i])
+    #plt.subplot(maxlev, 1, i)
+    #plt.plot(coeffs[i])
     coeffs[i] = pywt.threshold(coeffs[i], threshold*max(coeffs[i]))
-    plt.plot(coeffs[i])
+    #plt.plot(coeffs[i])
 
 
-datarec = pywt.waverec(coeffs, 'sym4')
+datarec = pywt.waverec(coeffs, motherwave)
 
 
 mintime = 54000
@@ -55,6 +60,13 @@ plt.tight_layout()
 plt.show()
 
 
+
+
+
+
+
+'''
+#just some other stuff not important
 #fft of denoised and raw data
 dt = 0.001
 n = len(datarec)
@@ -80,4 +92,4 @@ plt.show()
 #peak-to-peak distance
 ppd = tsfel.feature_extraction.features.pk_pk_distance(datarec)
 print(ppd)
-
+'''
