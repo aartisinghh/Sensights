@@ -20,4 +20,15 @@ def df_from_txt(txt_path):
     return df
 
 
-
+def window(df):
+    '''
+    Input: the middle of a given ecg signal, df is the signal that is being used
+    Output: a sub array showing a single heartbeat which can have its features selected
+    '''
+    
+    #dx is the distance that we will take from the centre of the wave
+    dx = 50
+    
+    print("Hello")
+    
+    return wind
