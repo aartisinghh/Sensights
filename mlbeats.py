@@ -43,12 +43,13 @@ def denoising(data):
     '''
     motherwave = "coif5"
 
-    w = pywt.Wavelet(motherwave)
-    maxlev = pywt.dwt_max_level(len(data), w.dec_len)
+    #w = pywt.Wavelet(motherwave)
+    #maxlev = pywt.dwt_max_level(len(data), w.dec_len)
 
     threshold = 0.02
-    coeffs = pywt.wavedec(data, motherwave, level=maxlev)
+    coeffs = pywt.wavedec(data, motherwavem level=9)
     for j in range(1, len(coeffs)):
+        if j<=
 
         coeffs[j] = pywt.threshold(coeffs[j], threshold*max(coeffs[j]))
 
