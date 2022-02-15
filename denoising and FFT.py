@@ -5,7 +5,7 @@ import pywt
 import sys
 import tsfel
 import math
-df_100 = pd.read_csv('100.csv')
+df_100 = pd.read_csv("mitbih_database/101.csv")
 data = df_100["\'MLII\'"].to_numpy()
 index = df_100["\'sample #\'"].to_numpy()
 
@@ -30,12 +30,12 @@ coeffs = pywt.wavedec(data, motherwave, level=maxlev)
 
 #cA = pywt.threshold(cA, threshold*max(cA))
 
-#plt.figure()
+plt.figure()
 for i in range(1, len(coeffs)):
-    #plt.subplot(maxlev, 1, i)
-    #plt.plot(coeffs[i])
+    plt.subplot(maxlev, 1, i)
+    plt.plot(coeffs[i])
     coeffs[i] = pywt.threshold(coeffs[i], threshold*max(coeffs[i]))
-    #plt.plot(coeffs[i])
+    plt.plot(coeffs[i])
 
 
 datarec = pywt.waverec(coeffs, motherwave)

@@ -22,6 +22,19 @@ def df_from_txt(txt_path):
 
 
 
+def data_from_csv(csv_path):
+    '''
+     Input: Path to the csv file 
+    Output: Numpy array with "\'MLII\'"
+    
+    '''
+    df = pd.read_csv(csv_path, 'r')
+    return df["\'MLII\'"]
+
+
+
+
+
 def normalize(data):
     '''
     Input: ECG data, pandas series or numpy array
@@ -43,18 +56,20 @@ def denoising(data):
     '''
     motherwave = "coif5"
 
-    #w = pywt.Wavelet(motherwave)
-    #maxlev = pywt.dwt_max_level(len(data), w.dec_len)
+    w = pywt.Wavelet(motherwave)
+    maxlev = pywt.dwt_max_level(len(data), w.dec_len)
 
     threshold = 0.02
-    coeffs = pywt.wavedec(data, motherwavem level=9)
+    coeffs = pywt.wavedec(data, motherwave, level = maxlev)
     for j in range(1, len(coeffs)):
-        if j<=
-
-        coeffs[j] = pywt.threshold(coeffs[j], threshold*max(coeffs[j]))
+        if j<=3:
+            coeffs[j] = 0
+        else:
+            coeffs[j] = pywt.threshold(coeffs[j], threshold*max(coeffs[j]))
 
     datarec = pywt.waverec(coeffs, motherwave)
     
     
     return datarec
+
 
