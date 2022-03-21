@@ -1,0 +1,24 @@
+I lost the GitHub link
+From Aarti Singh to Everyone 05:19 PM
+I’ll send
+From Aarti Singh to Everyone 05:40 PM
+https://docs.google.com/presentation/d/1EjnPYrvmhFMSoUhMkEQsulXzGciUfsvdM3XEk-CtyPQ/edit#slide=id.g10ee1f2c1b6_0_126
+From Aarti Singh to Everyone 05:50 PM
+Wait sorry my sound is weird I’ll be right back
+From Kaleb Huneau to Everyone 06:00 PM
+Cd desktop
+git pull
+Git init
+Cd -
+cd ~
+git clone https://github.com/aartisinghh/Sensights.git
+From Aarti Singh to Everyone 06:02 PM
+git checkout -b <graeden>
+From Kaleb Huneau to Everyone 06:05 PM
+git checkout graeden
+git add main.ipynb
+From Aarti Singh to Everyone 06:07 PM
+Git add .
+Git status
+message'
+Git push
